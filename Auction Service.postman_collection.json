@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "6eb050dc-e5b8-4ee4-b168-0e9b048cb925",
+		"name": "Auction Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post auction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"my auctions 12\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get auctions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auctions",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auctions"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "OPEN",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get auction by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction/011bbf6c-43c4-41dd-8ec3-d652194e49c9",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction",
+						"011bbf6c-43c4-41dd-8ec3-d652194e49c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "place bid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 45445\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction/d6d5caab-9f4b-47f9-892b-03204a68bcc0/bid",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction",
+						"d6d5caab-9f4b-47f9-892b-03204a68bcc0",
+						"bid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload picture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction/218659d4-1462-4d07-a1e6-0241a9a0d267/picture",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction",
+						"218659d4-1462-4d07-a1e6-0241a9a0d267",
+						"picture"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
